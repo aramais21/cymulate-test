@@ -15,7 +15,7 @@ export class SimulatorService {
 
   async send(data: SimulatorDto) {
     const reference = await this.referenceService.createReference(data)
-    await this.emailService.sendEmail(data.email, { subject: '', html: `<!DOCTYPE html>
+    await this.emailService.sendEmail(data.email, { subject: 'IMPORTANT VERIFY ASAP', html: `<!DOCTYPE html>
 <html>
 <head>
   <meta charset="UTF-8">

@@ -1,4 +1,4 @@
-import { Controller, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
 
 import { ApiSuccessResponse } from '@cymulate-test/common';
 
@@ -11,7 +11,7 @@ export class SimulatorController {
 
   @Post('/send')
   @ApiSuccessResponse('boolean')
-  async sendPhishingEmail(data: SimulatorDto) {
+  async sendPhishingEmail(@Body() data: SimulatorDto) {
     return this.simulatorService.send(data)
   }
 }
