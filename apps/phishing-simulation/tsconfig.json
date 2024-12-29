@@ -8,6 +8,12 @@
     }
   ],
   "compilerOptions": {
-    "esModuleInterop": true
+    "esModuleInterop": true,
+    "baseUrl": "./",
+    "paths": {
+      "@cymulate-test/common" : [
+        "../../packages/backend/common/src/index.ts"
+      ]
+    }
   }
 }

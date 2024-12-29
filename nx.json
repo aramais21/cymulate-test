@@ -33,12 +33,7 @@
       "plugin": "@nx/jest/plugin",
       "options": {
         "targetName": "test"
-      },
-      "exclude": [
-        "apps/cymulate-test-e2e/**/*",
-        "apps/phishing-simulation-e2e/**/*",
-        "apps/phishing-attempt-manager-e2e/**/*"
-      ]
+      }
     }
   ]
 }
