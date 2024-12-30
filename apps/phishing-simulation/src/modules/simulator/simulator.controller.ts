@@ -1,4 +1,4 @@
-import { Body, Controller, Param, Patch, Post } from '@nestjs/common';
+import { Body, Controller, Post } from '@nestjs/common';
 
 import { ApiSuccessResponse } from '@cymulate-test/common';
 

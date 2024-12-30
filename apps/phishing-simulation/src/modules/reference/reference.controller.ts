@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import { Controller, Get, Param, Patch } from '@nestjs/common';
 
 import { ApiSuccessResponse } from '@cymulate-test/common';
 

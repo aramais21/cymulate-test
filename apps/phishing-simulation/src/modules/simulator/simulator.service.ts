@@ -1,9 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { EmailService } from '../email/email.service';
-import { ReferenceService } from '../reference/reference.service';
-import { SimulatorDto } from './simulator.dto';
 import { ConfigService } from '@nestjs/config';
 
+import { EmailService } from '@cymulate-test/common';
+
+import { ReferenceService } from '../reference/reference.service';
+import { SimulatorDto } from './simulator.dto';
 
 @Injectable()
 export class SimulatorService {
