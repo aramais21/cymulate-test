@@ -3,7 +3,7 @@ import { InjectModel } from '@nestjs/mongoose'
 import { Model } from 'mongoose'
 
 import { ReferenceSchema } from './reference.schema';
-import { ReferenceCreationDto, ReferenceDto, ReferenceStatusEnum } from './reference.dto';
+import { ReferenceCreationDto, ReferenceDto } from './reference.dto';
 
 @Injectable()
 export class ReferenceDao {
@@ -23,9 +23,5 @@ export class ReferenceDao {
 
   findById(id: string) {
     return this.model.findById(id)
-  }
-
-  findOneAndUpdateStatusById(id: string, status: ReferenceStatusEnum) {
-    return this.model.findByIdAndUpdate(id, { $set: { status } })
   }
 }

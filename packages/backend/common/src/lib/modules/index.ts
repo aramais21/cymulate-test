@@ -1,2 +1,5 @@
 export * from './email/email.service'
 export * from './email/email.module'
+export * from './requests/request.dto'
+export * from './requests/request.service'
+export * from './requests/request.module'

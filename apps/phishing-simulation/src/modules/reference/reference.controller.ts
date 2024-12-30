@@ -18,7 +18,7 @@ export class ReferenceController {
 
   @Patch('/:id')
   @ApiSuccessResponse('boolean')
-  async updateReference(@Param('id') id: string) {
-    return this.referenceService.updateReferenceToClicked(id)
+  async handleReferenceClick(@Param('id') id: string) {
+    return this.referenceService.handleReferenceClick(id)
   }
 }

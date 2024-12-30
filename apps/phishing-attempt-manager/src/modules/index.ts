@@ -6,6 +6,7 @@ import { EnvConfigFactory } from '../common/config'
 import { UserModule } from './user/user.module';
 import { AuthModule } from './auth/auth.module';
 import { EmailModule } from '@cymulate-test/common';
+import { AttemptModule } from './attempt/attempt.module';
 
 export const MODULES = [
   ConfigModule.forRoot({
@@ -30,4 +31,5 @@ export const MODULES = [
   EmailModule,
   UserModule,
   AuthModule,
+  AttemptModule
 ]

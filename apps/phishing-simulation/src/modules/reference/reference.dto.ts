@@ -1,11 +1,6 @@
 import { IsDate, IsEmail, IsEnum, IsNotEmpty, IsString } from 'class-validator';
 import { ApiProperty } from '@nestjs/swagger';
 
-export enum ReferenceStatusEnum {
-  Created = 'created',
-  Clicked = 'clicked'
-}
-
 export class ReferenceCreationDto {
   @IsString()
   @IsEmail()
@@ -17,13 +12,14 @@ export class ReferenceCreationDto {
   @IsNotEmpty()
   @ApiProperty()
   externalId: string
+
+  @IsString()
+  @IsNotEmpty()
+  @ApiProperty()
+  callbackUrl: string
 }
 
 export class ReferenceDto extends ReferenceCreationDto {
-  @IsEnum(ReferenceStatusEnum)
-  @ApiProperty({ enum: Object.values(ReferenceStatusEnum), enumName: 'ReferenceStatusEnum', default: ReferenceStatusEnum.Created })
-  status: ReferenceStatusEnum
-
   @IsString()
   @IsNotEmpty()
   @ApiProperty()

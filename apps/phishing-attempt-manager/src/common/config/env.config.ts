@@ -11,4 +11,9 @@ export const EnvConfigFactory = (): Config => ({
     password: process.env.SMTP_PASSWORD || '',
     from: process.env.SMTP_FROM || ''
   },
+  jwtSecret: process.env.JWT_SECRET || '',
+  frontEndUrl: process.env.FRONT_END_URL || '',
+  bcryptSaltRounds: Number(process.env.BCRYPT_SALT_ROUNDS) || 0,
+  phishingSimulationServerUrl: process.env.PHISHING_SIMULATION_SERVER_URL || '',
+  serverUrl: process.env.SERVER_URL || '',
 })

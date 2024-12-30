@@ -1,7 +1,7 @@
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 
-import { EmailModule } from '@cymulate-test/common';
+import { EmailModule, RequestModule } from '@cymulate-test/common';
 
 import { EnvConfigFactory } from '../common/config'
 import { ReferenceModule } from './reference/reference.module';
@@ -20,6 +20,7 @@ export const MODULES = [
     inject: [ConfigService]
   }),
   EmailModule,
+  RequestModule,
   ReferenceModule,
   SimulatorModule
 ]
