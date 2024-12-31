@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Patch } from '@nestjs/common';
+import { Controller, Get, Param } from '@nestjs/common';
 
 import { ApiSuccessResponse } from '@cymulate-test/common';
 
@@ -16,7 +16,7 @@ export class ReferenceController {
     return this.referenceService.getByExternalId(externalId)
   }
 
-  @Patch('/:id')
+  @Get('/click/:id')
   @ApiSuccessResponse('boolean')
   async handleReferenceClick(@Param('id') id: string) {
     return this.referenceService.handleReferenceClick(id)

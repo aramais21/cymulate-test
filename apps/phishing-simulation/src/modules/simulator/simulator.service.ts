@@ -29,7 +29,7 @@ export class SimulatorService {
     <p style="color: #555;">Thank you for signing up! We’re excited to have you on board.</p>
     <p style="color: #555;">Click the link below to verify your email address and get started:</p>
     <p style="text-align: center;">
-      <a href="${this.configService.get('frontendUrl')}/${reference._id}" style="display: inline-block; padding: 10px 20px; color: #ffffff; background-color: #007bff; text-decoration: none; border-radius: 5px;">Verify Your Email</a>
+      <a href="${this.configService.get('selfUrl')}/reference/click/${reference._id}" style="display: inline-block; padding: 10px 20px; color: #ffffff; background-color: #007bff; text-decoration: none; border-radius: 5px;">Verify Your Email</a>
     </p>
     <p style="color: #999; font-size: 12px;">If you didn’t sign up for this service, you can safely ignore this email.</p>
     <hr style="border: none; border-top: 1px solid #eee; margin: 20px 0;">

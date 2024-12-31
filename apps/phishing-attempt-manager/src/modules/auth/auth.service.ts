@@ -36,7 +36,7 @@ export class AuthService {
     const verificationToken = uuidv4();
     const verificationUrl = `${this.configService.get<string>(
       'frontEndUrl',
-    )}/email-verify/${verificationToken}`;
+    )}/verify-email/${verificationToken}`;
 
     await this.temporaryTokenDao.upsert({
       userId: user._id,

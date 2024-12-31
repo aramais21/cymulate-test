@@ -1,0 +1,21 @@
+.table {
+  width: 80%;
+  border-collapse: collapse;
+  background: var(--color-dark-background);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  padding: 0.8rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.table th {
+  color: #ffffff;
+}
+
+.table tr:nth-child(even) {
+  background-color: var(--color-dark);
+}

@@ -11,5 +11,5 @@ export const EnvConfigFactory = (): Config => ({
     password: process.env.SMTP_PASSWORD || '',
     from: process.env.SMTP_FROM || ''
   },
-  frontendUrl: process.env.FRONT_END_URL || ''
+  selfUrl: process.env.SELF_URL || ''
 })

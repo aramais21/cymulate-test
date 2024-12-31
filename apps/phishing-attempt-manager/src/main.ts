@@ -18,6 +18,8 @@ async function bootstrap() {
     })
   )
 
+  app.enableCors();
+
   const documentConfig = new DocumentBuilder()
     .setTitle('Phishing Attempt Manager microservice')
     .setDescription('Phishing Attempt Manager API')
