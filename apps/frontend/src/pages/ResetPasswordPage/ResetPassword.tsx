@@ -1,7 +1,8 @@
 import React, { useState } from "react";
+import { useParams } from 'react-router';
+
 import styles from "./ResetPasswordPage.module.css";
 import { resetPassword } from '../../api/auth';
-import { useParams } from 'react-router';
 
 const ResetPassword: React.FC = () => {
   const { token } = useParams();

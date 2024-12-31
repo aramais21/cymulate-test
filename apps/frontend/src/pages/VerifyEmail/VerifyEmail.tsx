@@ -1,7 +1,7 @@
-import { useNavigate, useParams, useSearchParams } from 'react-router';
+import { useNavigate, useParams, } from 'react-router';
 import styles from "./VerifyEmail.module.css";
 import { useEffect } from 'react';
-import { register as registerApi, verifyEmail } from '../../api/auth';
+import { verifyEmail } from '../../api/auth';
 
 const VerifyEmail = () => {
   const { token } = useParams();

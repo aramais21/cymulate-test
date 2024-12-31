@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from 'react';
-import styles from "./ForgotPasswordPage.module.css";
-import { forgotPassword, verifyEmail } from '../../api/auth';
+import React, { useState } from 'react';
 import { Link } from 'react-router';
+
+import styles from "./ForgotPasswordPage.module.css";
+import { forgotPassword } from '../../api/auth';
 
 const ForgotPassword: React.FC = () => {
   const [email, setEmail] = useState("");
