@@ -1,101 +1,174 @@
-# MyWorkspace
+# Cymulate Test Task
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This Nx workspace contains three applications:
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+- Two **NestJS** backend services: `phishing-simulation` and `phishing-attempt-manager`.
+- One **Vite React** frontend application: `frontend`.
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
+## Table of Contents
 
-## Run tasks
+1. [Getting Started](#getting-started)
+2. [Project Structure](#project-structure)
+3. [Applications Overview](#applications-overview)
+4. [Running the Applications](#running-the-applications)
+5. [Environment Files](#environment-files)
+6. [Nx Commands](#nx-commands)
+7. [Useful Links](#useful-links)
 
-To run the dev server for your app, use:
+---
 
-```sh
-npx nx serve cymulate-test
+## Getting Started
+
+### Prerequisites
+
+Make sure you have the following installed:
+
+- [Node.js](https://nodejs.org/) (version 18 or later)
+- [Yarn](https://yarnpkg.com/) (version 1.22 or later)
+- [Nx CLI](https://nx.dev/) (optional, for better development experience)
+
+### Install Dependencies
+
+After cloning the repository, run the following command to install all dependencies:
+
+```bash
+yarn install
 ```
 
-To create a production bundle:
+---
 
-```sh
-npx nx build cymulate-test
+## Project Structure
+
+The repository is organized as follows:
+
+```
+/apps
+  /phishing-simulation       # NestJS backend service for phishing simulations
+  /phishing-attempt-manager  # NestJS backend service for managing phishing attempts
+  /frontend                  # Vite React frontend application
+/packages
+  /backend
+    /common                  # Shared libraries and utilities used across apps
+/tools                       # Custom scripts or tools for the monorepo
+nx.json                      # Nx workspace configuration
+workspace.json               # Project-specific configuration
 ```
 
-To see all available targets to run for a project, run:
+---
 
-```sh
-npx nx show project cymulate-test
+## Applications Overview
+
+### Phishing Simulation
+
+- **Type**: NestJS Backend
+- **Purpose**: Simulates phishing scenarios for testing and training purposes.
+- **Location**: `apps/phishing-simulation`
+
+### Phishing Attempt Manager
+
+- **Type**: NestJS Backend
+- **Purpose**: Manages and tracks phishing attempts, including results and metrics.
+- **Location**: `apps/phishing-attempt-manager`
+
+### Frontend
+
+- **Type**: Vite React Frontend
+- **Purpose**: Provides a web interface for visualizing phishing data and managing configurations.
+- **Location**: `apps/frontend`
+
+---
+
+## Running the Applications
+
+### Using Nx CLI
+
+You can serve each app individually using Nx commands:
+
+#### Serve `phishing-simulation` (NestJS backend):
+
+```bash
+yarn nx serve phishing-simulation
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+#### Serve `phishing-attempt-manager` (NestJS backend):
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Add new projects
-
-While you could add new projects to your workspace manually, you might want to leverage [Nx plugins](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) and their [code generation](https://nx.dev/features/generate-code?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) feature.
-
-Use the plugin's generator to create new projects.
-
-To generate a new application, use:
-
-```sh
-npx nx g @nx/nest:app demo
+```bash
+yarn nx serve phishing-attempt-manager
 ```
 
-To generate a new library, use:
+#### Serve `frontend` (Vite React frontend):
 
-```sh
-npx nx g @nx/node:lib mylib
+```bash
+yarn nx serve frontend
 ```
 
-You can use `npx nx list` to get a list of installed plugins. Then, run `npx nx list <plugin-name>` to learn about more specific capabilities of a particular plugin. Alternatively, [install Nx Console](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) to browse plugins and generators in your IDE.
+### Running All Applications Together
 
-[Learn more about Nx plugins &raquo;](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) | [Browse the plugin registry &raquo;](https://nx.dev/plugin-registry?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+To serve all applications simultaneously, use:
 
-## Set up CI!
-
-### Step 1
-
-To connect to Nx Cloud, run the following command:
-
-```sh
-npx nx connect
+```bash
+yarn nx run-many --target=serve --all
 ```
 
-Connecting to Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
+---
 
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+## Environment Files
 
-### Step 2
+Each project within the monorepo has its own `.env.example` file that contains a template for the required environment variables. To set up the environment variables for each application:
 
-Use the following command to configure a CI workflow for your workspace:
+1. Navigate to the respective project folder (e.g., `apps/phishing-simulation`, `apps/phishing-attempt-manager`, or `apps/frontend`).
+2. Duplicate the `.env.example` file and rename it to `.env`.
+3. Update the values in the `.env` file as needed for your local or production environment.
 
-```sh
-npx nx g ci-workflow
+Ensure that the correct environment variables are configured before running or deploying the applications.
+
+---
+
+## Nx Commands
+
+Nx provides a set of powerful commands for managing the monorepo:
+
+### Build Applications
+
+```bash
+yarn nx build <app-name>
 ```
 
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### Lint Applications
 
-## Install Nx Console
+```bash
+yarn nx lint <app-name>
+```
 
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
+### Run Tests
 
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+yarn nx test <app-name>
+```
 
-## Useful links
+### Affected Commands
 
-Learn more:
+For optimized builds and tests:
 
-- [Learn more about this workspace setup](https://nx.dev/nx-api/nest?utm_source=nx_project&amp;utm_medium=readme&amp;utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+```bash
+yarn nx affected:build
+yarn nx affected:test
+yarn nx affected:lint
+```
 
-And join the Nx community:
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+---
+
+## Useful Links
+
+- **Nx Documentation**: [https://nx.dev](https://nx.dev)\
+  Comprehensive guide for managing monorepos and using Nx CLI efficiently.
+
+- **Nodemailer Gmail Setup Documentation**: [https://nodemailer.com/usage/using-gmail/](https://nodemailer.com/usage/using-gmail/)\
+  Step-by-step instructions to configure Gmail for sending emails via Nodemailer.
+
+---
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
